@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.exe.config
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.exe
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.pdb
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.xml
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.POS.resources
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Resources.resources
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.vbproj.GenerateResource.Cache
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.exe
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.xml
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.pdb
