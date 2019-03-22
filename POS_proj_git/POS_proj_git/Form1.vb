@@ -5,7 +5,11 @@
     Dim TPay As Integer
     Dim PayL As Integer
     Dim OP As Boolean
+    Dim SQL As New SQLControl
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If SQL.HasConnection = True Then
+            MsgBox("Connected")
+        End If
         ID_Text.Focus()
         OP = False
         AmountLabel.Visible = False
