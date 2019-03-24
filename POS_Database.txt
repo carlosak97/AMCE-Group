@@ -1,0 +1,131 @@
+CREATE TABLE Employees
+ (
+Employee_ID   Integer,
+ 
+Emoloyee_Name VARCHAR(25),
+  
+Address      VARCHAR(50),
+  
+Phone        VARCHAR(9),
+  
+DOB          DATE,
+ 
+PRIMARY KEY  (Employee_ID));
+ 
+
+
+CREATE TABLE Department
+ (
+Department_ID  Integer,
+  
+Location  VARCHAR(50),
+  
+PRIMARY KEY (Department_ID),
+  
+FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID));
+
+ 
+
+CREATE TABLE Item
+ (Item_ID     
+Integer,
+  Item_Name   VARCHAR(25),
+  
+Description     VARCHAR(50),
+  
+Color       VARCHAR(20),
+  
+Price Integer,
+  
+PRIMARY KEY (Item_ID));
+
+ 
+
+CREATE TABLE Payment
+ (Payment_ID  Integer,
+  
+Payment_Method Varchar(10),
+  
+Amount Integer,
+  
+Total Integer,
+  
+PRIMARY KEY (Payment_ID));
+  
+  
+
+CREATE TABLE Trans_Foot(
+  
+Foot_ID Integer,
+  
+Item Integer,
+  
+Salesman Integer,
+  
+Price Integer,
+  
+Quantity Integer,
+  
+Total_Price Integer,
+  
+Total_Quantity Integer, 
+  
+PRIMARY KEY (Foot_ID),
+  
+FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID),
+  FOREIGN KEY (Salesman) REFERENCES Employee(Employee_ID));
+  
+ 
+
+
+CREATE TABLE Trans_Head(
+  
+Tran_ID Integer,
+  
+Tran_Date Date,
+  
+Pay_ID integer,
+  
+Foot_ID Integer,
+  
+PRIMARY KEY (Tran_ID),
+  
+FOREIGN KEY (Pay_ID) REFERENCES Payment(Payment_ID),
+  FOREIGN KEY (Foot_ID) REFERENCES Trans_Foot(Foot_ID));
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
