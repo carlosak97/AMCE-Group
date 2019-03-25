@@ -22,7 +22,7 @@ Partial Class POS
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Emp_Label = New System.Windows.Forms.Label()
         Me.ID_Text = New System.Windows.Forms.TextBox()
         Me.EnterID = New System.Windows.Forms.Button()
         Me.ItemList = New System.Windows.Forms.ListBox()
@@ -40,16 +40,19 @@ Partial Class POS
         Me.Amount_Text = New System.Windows.Forms.TextBox()
         Me.AmountPayLabel = New System.Windows.Forms.Label()
         Me.Done = New System.Windows.Forms.Button()
+        Me.DGVData = New System.Windows.Forms.DataGridView()
+        Me.CheckAll = New System.Windows.Forms.Button()
+        CType(Me.DGVData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'Emp_Label
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 45)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(67, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Salesman ID"
+        Me.Emp_Label.AutoSize = True
+        Me.Emp_Label.Location = New System.Drawing.Point(38, 45)
+        Me.Emp_Label.Name = "Emp_Label"
+        Me.Emp_Label.Size = New System.Drawing.Size(67, 13)
+        Me.Emp_Label.TabIndex = 0
+        Me.Emp_Label.Text = "Salesman ID"
         '
         'ID_Text
         '
@@ -194,11 +197,30 @@ Partial Class POS
         Me.Done.Text = "Done"
         Me.Done.UseVisualStyleBackColor = True
         '
+        'DGVData
+        '
+        Me.DGVData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVData.Location = New System.Drawing.Point(213, 51)
+        Me.DGVData.Name = "DGVData"
+        Me.DGVData.Size = New System.Drawing.Size(448, 232)
+        Me.DGVData.TabIndex = 19
+        '
+        'CheckAll
+        '
+        Me.CheckAll.Location = New System.Drawing.Point(408, 341)
+        Me.CheckAll.Name = "CheckAll"
+        Me.CheckAll.Size = New System.Drawing.Size(75, 23)
+        Me.CheckAll.TabIndex = 20
+        Me.CheckAll.Text = "Search"
+        Me.CheckAll.UseVisualStyleBackColor = True
+        '
         'POS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(863, 378)
+        Me.Controls.Add(Me.CheckAll)
+        Me.Controls.Add(Me.DGVData)
         Me.Controls.Add(Me.Done)
         Me.Controls.Add(Me.AmountPayLabel)
         Me.Controls.Add(Me.Amount_Text)
@@ -216,14 +238,15 @@ Partial Class POS
         Me.Controls.Add(Me.ItemList)
         Me.Controls.Add(Me.EnterID)
         Me.Controls.Add(Me.ID_Text)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Emp_Label)
         Me.Name = "POS"
-        Me.Text = "Form1"
+        Me.Text = "Point of Sales"
+        CType(Me.DGVData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Emp_Label As System.Windows.Forms.Label
     Friend WithEvents ID_Text As System.Windows.Forms.TextBox
     Friend WithEvents EnterID As System.Windows.Forms.Button
     Friend WithEvents ItemList As System.Windows.Forms.ListBox
@@ -241,5 +264,7 @@ Partial Class POS
     Friend WithEvents Amount_Text As System.Windows.Forms.TextBox
     Friend WithEvents AmountPayLabel As System.Windows.Forms.Label
     Friend WithEvents Done As System.Windows.Forms.Button
+    Friend WithEvents DGVData As System.Windows.Forms.DataGridView
+    Friend WithEvents CheckAll As System.Windows.Forms.Button
 
 End Class

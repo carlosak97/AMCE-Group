@@ -15,6 +15,8 @@
         AmountLabel.Visible = False
         ItemList.Visible = False
         PayList.Visible = False
+        CheckAll.Visible = False
+        DGVData.Visible = False
         PayList.Items.Add("Cash")
         PayList.Items.Add("Dollar")
         PayList.Items.Add("MasterCard LBP")
@@ -42,24 +44,30 @@
     Private Sub EnterID_Click(sender As Object, e As EventArgs) Handles EnterID.Click
         Try
             ID = ID_Text.Text
-            If (ID > 0) Then
-                AmountLabel.Visible = True
-                EnterID.Visible = False
-                ID_Text.Visible = False
-                Label1.Visible = False
-                ItemList.Visible = True
-                ItemLabel.Visible = True
-                EnterItem.Visible = True
-                ItemText.Visible = True
-                QuantityText.Visible = True
-                QuantityLabel.Visible = True
-                TotalQuantity.Visible = True
-                TotalPrice.Visible = True
-                ToPayment.Visible = True
-                ItemText.Focus()
-            Else
-                MsgBox("Wrond ID entered")
+            SQL.RunQuery("Select Count(Emp_ID) As EmpCount From Employee Where Emp_ID ='" & ID_Text.Text & "' ")
+            If SQL.SQLDataset.Tables(0).Rows(0).Item("EmpCount") = 1 Then
+                If (ID > 0) Then
+                    AmountLabel.Visible = True
+                    EnterID.Visible = False
+                    SQL.RunQuery("Select First_Name From Employee Where Emp_ID='" & ID_Text.Text & "' ")
+                    Emp_Label.Text = "Salesman: " & SQL.SQLDataset.Tables(0).Rows(0).Item(0)
+                    ID_Text.Visible = False
+                    ItemList.Visible = True
+                    CheckAll.Visible = True
+                    ItemLabel.Visible = True
+                    EnterItem.Visible = True
+                    ItemText.Visible = True
+                    QuantityText.Visible = True
+                    QuantityLabel.Visible = True
+                    TotalQuantity.Visible = True
+                    TotalPrice.Visible = True
+                    ToPayment.Visible = True
+                    ItemText.Focus()
+                Else
+                    MsgBox("Wrond ID entered")
+                End If
             End If
+
         Catch ex As Exception
             MsgBox("Enter ID")
         End Try
@@ -73,14 +81,20 @@
     Private Sub EnterItem_Click(sender As Object, e As EventArgs) Handles EnterItem.Click
         Try
             Item_ID = ItemText.Text
-            TQuan = TQuan + QuantityText.Text
-            ItemText.Text = ""
-            QuantityText.Text = ""
-            TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
-            ItemText.Focus()
-            PayL = PayL + 20
-            TPay = TPay + 20
-            TotalPrice.Text = "Total Price : " + TPay.ToString
+            SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
+            If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
+                SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
+                TPay = TPay + (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * QuantityText.Text)
+                ItemList.Items.Add("Item ID : " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
+                SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
+
+                TQuan = TQuan + QuantityText.Text
+                ItemText.Text = ""
+                QuantityText.Text = ""
+                TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
+                ItemText.Focus()
+                TotalPrice.Text = "Total Price : " + TPay.ToString
+            End If
         Catch ex As Exception
             MsgBox("Enter ID and Quantity")
         End Try
@@ -94,7 +108,8 @@
         EnterID.Visible = False
         EnterItem.Visible = False
         AmountLabel.Visible = True
-        Label1.Visible = False
+        Emp_Label.Visible = False
+        CheckAll.Visible = False
         ItemLabel.Visible = False
         Amount_Text.Visible = True
         ItemText.Visible = False
@@ -123,6 +138,7 @@
             ItemLabel.Visible = False
             Amount_Text.Visible = False
             ItemText.Visible = False
+            CheckAll.Visible = False
             AmountLabel.Visible = False
             QuantityText.Visible = False
             QuantityLabel.Visible = False
@@ -133,7 +149,7 @@
             ToPayment.Visible = False
             EnterID.Visible = True
             ID_Text.Visible = True
-            Label1.Visible = True
+            Emp_Label.Visible = True
             Done.Visible = False
             Pay.Visible = False
 
@@ -151,7 +167,45 @@
         Catch ex As Exception
             MsgBox("Enter Payment Amount")
         End Try
-       
+
+    End Sub
+    Private Sub CheckAll_Click(sender As Object, e As EventArgs) Handles CheckAll.Click
+        If SQL.HasConnection = True Then
+            SQL.RunQuery("Select * From Item")
+            If OP = False Then
+                ItemList.Visible = False
+                ItemLabel.Visible = False
+                ItemText.Visible = False
+                QuantityText.Visible = False
+                QuantityLabel.Visible = False
+                AmountLabel.Visible = False
+                TotalQuantity.Visible = False
+                TotalPrice.Visible = False
+                ToPayment.Visible = False
+                Emp_Label.Visible = False
+                Pay.Visible = False
+                EnterItem.Visible = False
+                DGVData.Visible = True
+                OP = True
+            Else
+                ItemList.Visible = True
+                ItemLabel.Visible = True
+                EnterItem.Visible = True
+                ItemText.Visible = True
+                QuantityText.Visible = True
+                QuantityLabel.Visible = True
+                TotalQuantity.Visible = True
+                TotalPrice.Visible = True
+                ToPayment.Visible = True
+                Emp_Label.Visible = True
+                DGVData.Visible = False
+                OP = False
+            End If
+
+            If SQL.SQLDataset.Tables.Count > 0 Then
+                DGVData.DataSource = SQL.SQLDataset.Tables(0)
+            End If
+        End If
     End Sub
 
 End Class
