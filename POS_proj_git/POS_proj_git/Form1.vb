@@ -15,7 +15,7 @@
         AmountLabel.Visible = False
         ItemList.Visible = False
         PayList.Visible = False
-        CheckAll.Visible = False
+        Search_Item.Visible = False
         DGVData.Visible = False
         PayList.Items.Add("Cash")
         PayList.Items.Add("Dollar")
@@ -52,8 +52,11 @@
                     SQL.RunQuery("Select First_Name From Employee Where Emp_ID='" & ID_Text.Text & "' ")
                     Emp_Label.Text = "Salesman: " & SQL.SQLDataset.Tables(0).Rows(0).Item(0)
                     ID_Text.Visible = False
+                    DGVData.Visible = False
+                    OP = False
+                    Search_Emp.Visible = False
                     ItemList.Visible = True
-                    CheckAll.Visible = True
+                    Search_Item.Visible = True
                     ItemLabel.Visible = True
                     EnterItem.Visible = True
                     ItemText.Visible = True
@@ -108,8 +111,10 @@
         EnterID.Visible = False
         EnterItem.Visible = False
         AmountLabel.Visible = True
+        DGVData.Visible = False
+        OP = False
         Emp_Label.Visible = False
-        CheckAll.Visible = False
+        Search_Item.Visible = False
         ItemLabel.Visible = False
         Amount_Text.Visible = True
         ItemText.Visible = False
@@ -137,8 +142,11 @@
             ItemList.Visible = False
             ItemLabel.Visible = False
             Amount_Text.Visible = False
+            DGVData.Visible = False
+            OP = False
+            Search_Emp.Visible = True
             ItemText.Visible = False
-            CheckAll.Visible = False
+            Search_Item.Visible = False
             AmountLabel.Visible = False
             QuantityText.Visible = False
             QuantityLabel.Visible = False
@@ -169,35 +177,13 @@
         End Try
 
     End Sub
-    Private Sub CheckAll_Click(sender As Object, e As EventArgs) Handles CheckAll.Click
+    Private Sub CheckAll_Click(sender As Object, e As EventArgs) Handles Search_Item.Click
         If SQL.HasConnection = True Then
             SQL.RunQuery("Select * From Item")
             If OP = False Then
-                ItemList.Visible = False
-                ItemLabel.Visible = False
-                ItemText.Visible = False
-                QuantityText.Visible = False
-                QuantityLabel.Visible = False
-                AmountLabel.Visible = False
-                TotalQuantity.Visible = False
-                TotalPrice.Visible = False
-                ToPayment.Visible = False
-                Emp_Label.Visible = False
-                Pay.Visible = False
-                EnterItem.Visible = False
                 DGVData.Visible = True
                 OP = True
             Else
-                ItemList.Visible = True
-                ItemLabel.Visible = True
-                EnterItem.Visible = True
-                ItemText.Visible = True
-                QuantityText.Visible = True
-                QuantityLabel.Visible = True
-                TotalQuantity.Visible = True
-                TotalPrice.Visible = True
-                ToPayment.Visible = True
-                Emp_Label.Visible = True
                 DGVData.Visible = False
                 OP = False
             End If
@@ -207,5 +193,20 @@
             End If
         End If
     End Sub
+    Private Sub CheckEmp_Click(sender As Object, e As EventArgs) Handles Search_Emp.Click
+        If SQL.HasConnection = True Then
+            SQL.RunQuery("Select Emp_ID,First_Name,Last_Name From Employee")
+            If OP = False Then
+                DGVData.Visible = True
+                OP = True
+            Else
+                DGVData.Visible = False
+                OP = False
+            End If
 
+            If SQL.SQLDataset.Tables.Count > 0 Then
+                DGVData.DataSource = SQL.SQLDataset.Tables(0)
+            End If
+        End If
+    End Sub
 End Class

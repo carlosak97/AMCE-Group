@@ -41,14 +41,15 @@ Partial Class POS
         Me.AmountPayLabel = New System.Windows.Forms.Label()
         Me.Done = New System.Windows.Forms.Button()
         Me.DGVData = New System.Windows.Forms.DataGridView()
-        Me.CheckAll = New System.Windows.Forms.Button()
+        Me.Search_Item = New System.Windows.Forms.Button()
+        Me.Search_Emp = New System.Windows.Forms.Button()
         CType(Me.DGVData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Emp_Label
         '
         Me.Emp_Label.AutoSize = True
-        Me.Emp_Label.Location = New System.Drawing.Point(38, 45)
+        Me.Emp_Label.Location = New System.Drawing.Point(61, 42)
         Me.Emp_Label.Name = "Emp_Label"
         Me.Emp_Label.Size = New System.Drawing.Size(67, 13)
         Me.Emp_Label.TabIndex = 0
@@ -56,14 +57,14 @@ Partial Class POS
         '
         'ID_Text
         '
-        Me.ID_Text.Location = New System.Drawing.Point(130, 42)
+        Me.ID_Text.Location = New System.Drawing.Point(134, 39)
         Me.ID_Text.Name = "ID_Text"
         Me.ID_Text.Size = New System.Drawing.Size(100, 20)
         Me.ID_Text.TabIndex = 1
         '
         'EnterID
         '
-        Me.EnterID.Location = New System.Drawing.Point(311, 45)
+        Me.EnterID.Location = New System.Drawing.Point(250, 39)
         Me.EnterID.Name = "EnterID"
         Me.EnterID.Size = New System.Drawing.Size(75, 23)
         Me.EnterID.TabIndex = 2
@@ -200,26 +201,36 @@ Partial Class POS
         'DGVData
         '
         Me.DGVData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVData.Location = New System.Drawing.Point(213, 51)
+        Me.DGVData.Location = New System.Drawing.Point(435, 141)
         Me.DGVData.Name = "DGVData"
-        Me.DGVData.Size = New System.Drawing.Size(448, 232)
+        Me.DGVData.Size = New System.Drawing.Size(416, 232)
         Me.DGVData.TabIndex = 19
         '
-        'CheckAll
+        'Search_Item
         '
-        Me.CheckAll.Location = New System.Drawing.Point(408, 341)
-        Me.CheckAll.Name = "CheckAll"
-        Me.CheckAll.Size = New System.Drawing.Size(75, 23)
-        Me.CheckAll.TabIndex = 20
-        Me.CheckAll.Text = "Search"
-        Me.CheckAll.UseVisualStyleBackColor = True
+        Me.Search_Item.Location = New System.Drawing.Point(617, 45)
+        Me.Search_Item.Name = "Search_Item"
+        Me.Search_Item.Size = New System.Drawing.Size(75, 23)
+        Me.Search_Item.TabIndex = 20
+        Me.Search_Item.Text = "Search"
+        Me.Search_Item.UseVisualStyleBackColor = True
+        '
+        'Search_Emp
+        '
+        Me.Search_Emp.Location = New System.Drawing.Point(331, 39)
+        Me.Search_Emp.Name = "Search_Emp"
+        Me.Search_Emp.Size = New System.Drawing.Size(75, 23)
+        Me.Search_Emp.TabIndex = 21
+        Me.Search_Emp.Text = "Search"
+        Me.Search_Emp.UseVisualStyleBackColor = True
         '
         'POS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(863, 378)
-        Me.Controls.Add(Me.CheckAll)
+        Me.Controls.Add(Me.Search_Emp)
+        Me.Controls.Add(Me.Search_Item)
         Me.Controls.Add(Me.DGVData)
         Me.Controls.Add(Me.Done)
         Me.Controls.Add(Me.AmountPayLabel)
@@ -265,6 +276,7 @@ Partial Class POS
     Friend WithEvents AmountPayLabel As System.Windows.Forms.Label
     Friend WithEvents Done As System.Windows.Forms.Button
     Friend WithEvents DGVData As System.Windows.Forms.DataGridView
-    Friend WithEvents CheckAll As System.Windows.Forms.Button
+    Friend WithEvents Search_Item As System.Windows.Forms.Button
+    Friend WithEvents Search_Emp As System.Windows.Forms.Button
 
 End Class
