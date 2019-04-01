@@ -84,7 +84,7 @@ Tran_ID Integer,
   
 Tran_Date Date,
   
-Pay_ID integer,
+Pay_ID Integer,
   
 Foot_ID Integer,
   
@@ -94,8 +94,17 @@ FOREIGN KEY (Pay_ID) REFERENCES Payment(Payment_ID),
   FOREIGN KEY (Foot_ID) REFERENCES Trans_Foot(Foot_ID));
   
 
+CREATE TABLE Customer(
 
+Cust_ID Integer,
 
+Cust_Name varchar(20) ,
+
+Cust_Age char(3) ,
+
+Cust_Disc Decimal(1, 1), 
+
+PRIMARY KEY (Cust_ID));
 
 
 
