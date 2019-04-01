@@ -43,6 +43,9 @@ Partial Class POS
         Me.DGVData = New System.Windows.Forms.DataGridView()
         Me.Search_Item = New System.Windows.Forms.Button()
         Me.Search_Emp = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Check_Cust = New System.Windows.Forms.Button()
         CType(Me.DGVData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -99,7 +102,7 @@ Partial Class POS
         'ItemLabel
         '
         Me.ItemLabel.AutoSize = True
-        Me.ItemLabel.Location = New System.Drawing.Point(455, 45)
+        Me.ItemLabel.Location = New System.Drawing.Point(445, 44)
         Me.ItemLabel.Name = "ItemLabel"
         Me.ItemLabel.Size = New System.Drawing.Size(41, 13)
         Me.ItemLabel.TabIndex = 7
@@ -108,7 +111,7 @@ Partial Class POS
         'QuantityLabel
         '
         Me.QuantityLabel.AutoSize = True
-        Me.QuantityLabel.Location = New System.Drawing.Point(458, 71)
+        Me.QuantityLabel.Location = New System.Drawing.Point(445, 71)
         Me.QuantityLabel.Name = "QuantityLabel"
         Me.QuantityLabel.Size = New System.Drawing.Size(46, 13)
         Me.QuantityLabel.TabIndex = 8
@@ -224,11 +227,40 @@ Partial Class POS
         Me.Search_Emp.Text = "Search"
         Me.Search_Emp.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(445, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(51, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Customer"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(511, 19)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 23
+        '
+        'Check_Cust
+        '
+        Me.Check_Cust.Location = New System.Drawing.Point(617, 19)
+        Me.Check_Cust.Name = "Check_Cust"
+        Me.Check_Cust.Size = New System.Drawing.Size(75, 23)
+        Me.Check_Cust.TabIndex = 24
+        Me.Check_Cust.Text = "Search"
+        Me.Check_Cust.UseVisualStyleBackColor = True
+        '
         'POS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(863, 378)
+        Me.Controls.Add(Me.Check_Cust)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.ItemList)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Search_Emp)
         Me.Controls.Add(Me.Search_Item)
         Me.Controls.Add(Me.DGVData)
@@ -246,7 +278,6 @@ Partial Class POS
         Me.Controls.Add(Me.ItemLabel)
         Me.Controls.Add(Me.PayList)
         Me.Controls.Add(Me.AmountLabel)
-        Me.Controls.Add(Me.ItemList)
         Me.Controls.Add(Me.EnterID)
         Me.Controls.Add(Me.ID_Text)
         Me.Controls.Add(Me.Emp_Label)
@@ -278,5 +309,8 @@ Partial Class POS
     Friend WithEvents DGVData As System.Windows.Forms.DataGridView
     Friend WithEvents Search_Item As System.Windows.Forms.Button
     Friend WithEvents Search_Emp As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Check_Cust As System.Windows.Forms.Button
 
 End Class

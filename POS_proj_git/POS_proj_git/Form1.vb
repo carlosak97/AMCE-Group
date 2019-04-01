@@ -209,4 +209,21 @@
             End If
         End If
     End Sub
+
+    Private Sub CheckCust_Click(sender As Object, e As EventArgs) Handles Check_Cust.Click
+        If SQL.HasConnection = True Then
+            SQL.RunQuery("Select Cust_ID,Cust_Name From Customer")
+            If OP = False Then
+                DGVData.Visible = True
+                OP = True
+            Else
+                DGVData.Visible = False
+                OP = False
+            End If
+
+            If SQL.SQLDataset.Tables.Count > 0 Then
+                DGVData.DataSource = SQL.SQLDataset.Tables(0)
+            End If
+        End If
+    End Sub
 End Class
