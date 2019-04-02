@@ -4,19 +4,24 @@
     Dim TQuan As Integer
     Dim TPay As Integer
     Dim PayL As Integer
-    Dim OP As Boolean
     Dim SQL As New SQLControl
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If SQL.HasConnection = True Then
             MsgBox("Connected")
+            SQL.RunQuery("Select Emp_ID,First_Name,Last_Name From Employee")
+            If SQL.SQLDataset.Tables.Count > 0 Then
+                DGVData.DataSource = SQL.SQLDataset.Tables(0)
+            End If
         End If
         ID_Text.Focus()
-        OP = False
         AmountLabel.Visible = False
         ItemList.Visible = False
+        CustLabel.Visible = False
+        CustInput.Visible = False
+        Check_Cust.Visible = False
         PayList.Visible = False
         Search_Item.Visible = False
-        DGVData.Visible = False
+        DGVData.Visible = True
         PayList.Items.Add("Cash")
         PayList.Items.Add("Dollar")
         PayList.Items.Add("MasterCard LBP")
@@ -52,14 +57,14 @@
                     SQL.RunQuery("Select First_Name From Employee Where Emp_ID='" & ID_Text.Text & "' ")
                     Emp_Label.Text = "Salesman: " & SQL.SQLDataset.Tables(0).Rows(0).Item(0)
                     ID_Text.Visible = False
-                    DGVData.Visible = False
-                    OP = False
-                    Search_Emp.Visible = False
                     ItemList.Visible = True
                     Search_Item.Visible = True
                     ItemLabel.Visible = True
                     EnterItem.Visible = True
                     ItemText.Visible = True
+                    CustLabel.Visible = True
+                    Check_Cust.Visible = True
+                    CustInput.Visible = True
                     QuantityText.Visible = True
                     QuantityLabel.Visible = True
                     TotalQuantity.Visible = True
@@ -70,7 +75,12 @@
                     MsgBox("Wrond ID entered")
                 End If
             End If
-
+            If SQL.HasConnection = True Then
+                SQL.RunQuery("Select * From Item")
+                If SQL.SQLDataset.Tables.Count > 0 Then
+                    DGVData.DataSource = SQL.SQLDataset.Tables(0)
+                End If
+            End If
         Catch ex As Exception
             MsgBox("Enter ID")
         End Try
@@ -90,7 +100,6 @@
                 TPay = TPay + (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * QuantityText.Text)
                 ItemList.Items.Add("Item ID : " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
                 SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
-
                 TQuan = TQuan + QuantityText.Text
                 ItemText.Text = ""
                 QuantityText.Text = ""
@@ -112,7 +121,6 @@
         EnterItem.Visible = False
         AmountLabel.Visible = True
         DGVData.Visible = False
-        OP = False
         Emp_Label.Visible = False
         Search_Item.Visible = False
         ItemLabel.Visible = False
@@ -120,6 +128,9 @@
         ItemText.Visible = False
         QuantityText.Visible = False
         QuantityLabel.Visible = False
+        CustLabel.Visible = False
+        CustInput.Visible = False
+        Check_Cust.Visible = False
         PayList.Visible = True
         ToPayment.Visible = False
         AmountLabel.Visible = False
@@ -142,15 +153,14 @@
             ItemList.Visible = False
             ItemLabel.Visible = False
             Amount_Text.Visible = False
-            DGVData.Visible = False
-            OP = False
-            Search_Emp.Visible = True
+            DGVData.Visible = True
             ItemText.Visible = False
             Search_Item.Visible = False
             AmountLabel.Visible = False
             QuantityText.Visible = False
             QuantityLabel.Visible = False
             AmountLabel.Visible = False
+            AmountLabel.Text = "Amount Left :"
             TotalQuantity.Visible = False
             PayList.Visible = False
             TotalPrice.Visible = False
@@ -160,7 +170,15 @@
             Emp_Label.Visible = True
             Done.Visible = False
             Pay.Visible = False
-
+            Emp_Label.Text = "Salesman ID "
+            ID_Text.Text = ""
+            ID_Text.Focus()
+            If SQL.HasConnection = True Then
+                SQL.RunQuery("Select Emp_ID,First_Name,Last_Name From Employee")
+                If SQL.SQLDataset.Tables.Count > 0 Then
+                    DGVData.DataSource = SQL.SQLDataset.Tables(0)
+                End If
+            End If
         Else
             MsgBox("Still need payment from customer")
         End If
@@ -180,47 +198,14 @@
     Private Sub CheckAll_Click(sender As Object, e As EventArgs) Handles Search_Item.Click
         If SQL.HasConnection = True Then
             SQL.RunQuery("Select * From Item")
-            If OP = False Then
-                DGVData.Visible = True
-                OP = True
-            Else
-                DGVData.Visible = False
-                OP = False
-            End If
-
             If SQL.SQLDataset.Tables.Count > 0 Then
                 DGVData.DataSource = SQL.SQLDataset.Tables(0)
             End If
         End If
     End Sub
-    Private Sub CheckEmp_Click(sender As Object, e As EventArgs) Handles Search_Emp.Click
-        If SQL.HasConnection = True Then
-            SQL.RunQuery("Select Emp_ID,First_Name,Last_Name From Employee")
-            If OP = False Then
-                DGVData.Visible = True
-                OP = True
-            Else
-                DGVData.Visible = False
-                OP = False
-            End If
-
-            If SQL.SQLDataset.Tables.Count > 0 Then
-                DGVData.DataSource = SQL.SQLDataset.Tables(0)
-            End If
-        End If
-    End Sub
-
     Private Sub CheckCust_Click(sender As Object, e As EventArgs) Handles Check_Cust.Click
         If SQL.HasConnection = True Then
             SQL.RunQuery("Select Cust_ID,Cust_Name From Customer")
-            If OP = False Then
-                DGVData.Visible = True
-                OP = True
-            Else
-                DGVData.Visible = False
-                OP = False
-            End If
-
             If SQL.SQLDataset.Tables.Count > 0 Then
                 DGVData.DataSource = SQL.SQLDataset.Tables(0)
             End If

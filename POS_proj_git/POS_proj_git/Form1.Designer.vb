@@ -42,9 +42,8 @@ Partial Class POS
         Me.Done = New System.Windows.Forms.Button()
         Me.DGVData = New System.Windows.Forms.DataGridView()
         Me.Search_Item = New System.Windows.Forms.Button()
-        Me.Search_Emp = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.CustLabel = New System.Windows.Forms.Label()
+        Me.CustInput = New System.Windows.Forms.TextBox()
         Me.Check_Cust = New System.Windows.Forms.Button()
         CType(Me.DGVData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -87,9 +86,9 @@ Partial Class POS
         Me.AmountLabel.AutoSize = True
         Me.AmountLabel.Location = New System.Drawing.Point(311, 187)
         Me.AmountLabel.Name = "AmountLabel"
-        Me.AmountLabel.Size = New System.Drawing.Size(64, 13)
+        Me.AmountLabel.Size = New System.Drawing.Size(70, 13)
         Me.AmountLabel.TabIndex = 5
-        Me.AmountLabel.Text = "Amount Left"
+        Me.AmountLabel.Text = "Amount Left :"
         '
         'PayList
         '
@@ -203,10 +202,11 @@ Partial Class POS
         '
         'DGVData
         '
+        Me.DGVData.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGVData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVData.Location = New System.Drawing.Point(435, 141)
+        Me.DGVData.Location = New System.Drawing.Point(467, 164)
         Me.DGVData.Name = "DGVData"
-        Me.DGVData.Size = New System.Drawing.Size(416, 232)
+        Me.DGVData.Size = New System.Drawing.Size(416, 256)
         Me.DGVData.TabIndex = 19
         '
         'Search_Item
@@ -218,30 +218,21 @@ Partial Class POS
         Me.Search_Item.Text = "Search"
         Me.Search_Item.UseVisualStyleBackColor = True
         '
-        'Search_Emp
+        'CustLabel
         '
-        Me.Search_Emp.Location = New System.Drawing.Point(331, 39)
-        Me.Search_Emp.Name = "Search_Emp"
-        Me.Search_Emp.Size = New System.Drawing.Size(75, 23)
-        Me.Search_Emp.TabIndex = 21
-        Me.Search_Emp.Text = "Search"
-        Me.Search_Emp.UseVisualStyleBackColor = True
+        Me.CustLabel.AutoSize = True
+        Me.CustLabel.Location = New System.Drawing.Point(445, 22)
+        Me.CustLabel.Name = "CustLabel"
+        Me.CustLabel.Size = New System.Drawing.Size(51, 13)
+        Me.CustLabel.TabIndex = 22
+        Me.CustLabel.Text = "Customer"
         '
-        'Label1
+        'CustInput
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(445, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 13)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Customer"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(511, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 23
+        Me.CustInput.Location = New System.Drawing.Point(511, 19)
+        Me.CustInput.Name = "CustInput"
+        Me.CustInput.Size = New System.Drawing.Size(100, 20)
+        Me.CustInput.TabIndex = 23
         '
         'Check_Cust
         '
@@ -256,12 +247,12 @@ Partial Class POS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(863, 378)
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(882, 414)
         Me.Controls.Add(Me.Check_Cust)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.CustInput)
         Me.Controls.Add(Me.ItemList)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Search_Emp)
+        Me.Controls.Add(Me.CustLabel)
         Me.Controls.Add(Me.Search_Item)
         Me.Controls.Add(Me.DGVData)
         Me.Controls.Add(Me.Done)
@@ -308,9 +299,8 @@ Partial Class POS
     Friend WithEvents Done As System.Windows.Forms.Button
     Friend WithEvents DGVData As System.Windows.Forms.DataGridView
     Friend WithEvents Search_Item As System.Windows.Forms.Button
-    Friend WithEvents Search_Emp As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents CustLabel As System.Windows.Forms.Label
+    Friend WithEvents CustInput As System.Windows.Forms.TextBox
     Friend WithEvents Check_Cust As System.Windows.Forms.Button
 
 End Class
