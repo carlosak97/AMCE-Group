@@ -217,6 +217,35 @@
     End Sub
 
     Private Sub PayList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PayList.SelectedIndexChanged
-
-    End Sub
+            Try
+                Select Case PayList.SelectedIndex
+                    Case 0
+                        PayList.Location = New Point(695, 293)
+                        PinLabel.Visible = False
+                        PinText.Visible = False
+                    Case 1
+                        PayList.Location = New Point(695, 293)
+                        PinLabel.Visible = False
+                        PinText.Visible = False
+                    Case 2
+                        PayList.Location = New Point(695, 293)
+                        PinLabel.Visible = False
+                        PinText.Visible = False
+                    Case 3
+                        PayList.Location = New Point(695, 310)
+                        PinLabel.Visible = True 
+                        PinText.Visible = True
+                    Case 4
+                        PayList.Location = New Point(695, 293)
+                        PinLabel.Visible = False
+                        PinText.Visible = False
+                    Case 5
+                        PayList.Location = New Point(695, 310)
+                        PinLabel.Visible = True
+                        PinText.Visible = True
+                End Select
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Sub
 End Class
