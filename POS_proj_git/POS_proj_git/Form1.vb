@@ -18,6 +18,8 @@
         ItemList.Visible = False
         CustLabel.Visible = False
         CustInput.Visible = False
+        PinLabel.Visible = False
+        PinText.Visible = False
         Check_Cust.Visible = False
         PayList.Visible = False
         Search_Item.Visible = False
@@ -122,6 +124,7 @@
         AmountLabel.Visible = True
         DGVData.Visible = False
         Emp_Label.Visible = False
+        AmountPayLabel.Visible = True
         Search_Item.Visible = False
         ItemLabel.Visible = False
         Amount_Text.Visible = True
@@ -152,6 +155,7 @@
             ItemList.Items.Clear()
             ItemList.Visible = False
             ItemLabel.Visible = False
+            AmountPayLabel.Visible = False
             Amount_Text.Visible = False
             DGVData.Visible = True
             ItemText.Visible = False
@@ -210,5 +214,9 @@
                 DGVData.DataSource = SQL.SQLDataset.Tables(0)
             End If
         End If
+    End Sub
+
+    Private Sub PayList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PayList.SelectedIndexChanged
+
     End Sub
 End Class
