@@ -225,6 +225,8 @@
                 Discount = SQL.SQLDataset.Tables(0).Rows(0).Item(0)
                 PercLabel.Text = Discount.ToString + "%"
                 PercLabel.Visible = True
+                TPay = TPay - (TPay * Discount / 100)
+                TotalPrice.Text = "Total Price : " + TPay.ToString
             End If
         End If
     End Sub
