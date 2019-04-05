@@ -4,6 +4,7 @@
     Dim TQuan As Integer
     Dim TPay As Integer
     Dim PayL As Integer
+    Dim Discount As Integer
     Dim SQL As New SQLControl
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If SQL.HasConnection = True Then
@@ -14,6 +15,8 @@
             End If
         End If
         ID_Text.Focus()
+        PercLabel.Visible = False
+        Enter_Cust.Visible = False
         AmountLabel.Visible = False
         ItemList.Visible = False
         CustLabel.Visible = False
@@ -62,6 +65,7 @@
                     ItemList.Visible = True
                     Search_Item.Visible = True
                     ItemLabel.Visible = True
+                    Enter_Cust.Visible = True
                     EnterItem.Visible = True
                     ItemText.Visible = True
                     CustLabel.Visible = True
@@ -72,7 +76,7 @@
                     TotalQuantity.Visible = True
                     TotalPrice.Visible = True
                     ToPayment.Visible = True
-                    ItemText.Focus()
+                    CustInput.Focus()
                 Else
                     MsgBox("Wrond ID entered")
                 End If
@@ -99,8 +103,8 @@
             SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
             If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                 SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
-                TPay = TPay + (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * QuantityText.Text)
-                ItemList.Items.Add("Item ID : " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
+                TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
+                ItemList.Items.Add("Item ID: " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
                 SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
                 TQuan = TQuan + QuantityText.Text
                 ItemText.Text = ""
@@ -132,10 +136,12 @@
         QuantityText.Visible = False
         QuantityLabel.Visible = False
         CustLabel.Visible = False
+        Enter_Cust.Visible = False
         CustInput.Visible = False
         Check_Cust.Visible = False
         PayList.Visible = True
         ToPayment.Visible = False
+        PercLabel.Visible = False
         AmountLabel.Visible = False
         Pay.Visible = True
         AmountLabel.Visible = True
@@ -216,6 +222,7 @@
         End If
     End Sub
 
+<<<<<<< HEAD
     Private Sub PayList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PayList.SelectedIndexChanged
             Try
                 Select Case PayList.SelectedIndex
@@ -249,3 +256,18 @@
             End Try
         End Sub
 End Class
+=======
+    Private Sub Enter_Cust_Click(sender As Object, e As EventArgs) Handles Enter_Cust.Click
+        If SQL.HasConnection = True Then
+            SQL.RunQuery("Select Cust_Disc From Customer Where Cust_ID = '" & CustInput.Text & "' ")
+            If SQL.SQLDataset.Tables.Count > 0 Then
+                Discount = SQL.SQLDataset.Tables(0).Rows(0).Item(0)
+                PercLabel.Text = Discount.ToString + "%"
+                PercLabel.Visible = True
+                TPay = TPay - (TPay * Discount / 100)
+                TotalPrice.Text = "Total Price : " + TPay.ToString
+            End If
+        End If
+    End Sub
+End Class
+>>>>>>> customer

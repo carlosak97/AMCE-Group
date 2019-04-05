@@ -45,8 +45,13 @@ Partial Class POS
         Me.CustLabel = New System.Windows.Forms.Label()
         Me.CustInput = New System.Windows.Forms.TextBox()
         Me.Check_Cust = New System.Windows.Forms.Button()
+<<<<<<< HEAD
         Me.PinLabel = New System.Windows.Forms.Label()
         Me.PinText = New System.Windows.Forms.TextBox()
+=======
+        Me.Enter_Cust = New System.Windows.Forms.Button()
+        Me.PercLabel = New System.Windows.Forms.Label()
+>>>>>>> customer
         CType(Me.DGVData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -270,6 +275,7 @@ Partial Class POS
         Me.Check_Cust.Text = "Search"
         Me.Check_Cust.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
         'PinLabel
         '
         Me.PinLabel.AutoSize = True
@@ -285,15 +291,40 @@ Partial Class POS
         Me.PinText.Name = "PinText"
         Me.PinText.Size = New System.Drawing.Size(260, 38)
         Me.PinText.TabIndex = 26
+=======
+        'Enter_Cust
+        '
+        Me.Enter_Cust.Location = New System.Drawing.Point(592, 107)
+        Me.Enter_Cust.Name = "Enter_Cust"
+        Me.Enter_Cust.Size = New System.Drawing.Size(91, 23)
+        Me.Enter_Cust.TabIndex = 25
+        Me.Enter_Cust.Text = "Enter Customer"
+        Me.Enter_Cust.UseVisualStyleBackColor = True
+        '
+        'PercLabel
+        '
+        Me.PercLabel.AutoSize = True
+        Me.PercLabel.Location = New System.Drawing.Point(698, 24)
+        Me.PercLabel.Name = "PercLabel"
+        Me.PercLabel.Size = New System.Drawing.Size(21, 13)
+        Me.PercLabel.TabIndex = 26
+        Me.PercLabel.Text = "0%"
+>>>>>>> customer
         '
         'POS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(16.0!, 31.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(2352, 987)
         Me.Controls.Add(Me.PinText)
         Me.Controls.Add(Me.PinLabel)
+=======
+        Me.ClientSize = New System.Drawing.Size(882, 414)
+        Me.Controls.Add(Me.PercLabel)
+        Me.Controls.Add(Me.Enter_Cust)
+>>>>>>> customer
         Me.Controls.Add(Me.Check_Cust)
         Me.Controls.Add(Me.CustInput)
         Me.Controls.Add(Me.ItemList)
@@ -348,6 +379,12 @@ Partial Class POS
     Friend WithEvents CustLabel As System.Windows.Forms.Label
     Friend WithEvents CustInput As System.Windows.Forms.TextBox
     Friend WithEvents Check_Cust As System.Windows.Forms.Button
+<<<<<<< HEAD
     Friend WithEvents PinLabel As Label
     Friend WithEvents PinText As TextBox
+=======
+    Friend WithEvents Enter_Cust As System.Windows.Forms.Button
+    Friend WithEvents PercLabel As System.Windows.Forms.Label
+
+>>>>>>> customer
 End Class
