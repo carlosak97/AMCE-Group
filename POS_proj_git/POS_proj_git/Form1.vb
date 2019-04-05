@@ -224,6 +224,7 @@
 
 <<<<<<< HEAD
     Private Sub PayList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PayList.SelectedIndexChanged
+<<<<<<< HEAD
             Try
                 Select Case PayList.SelectedIndex
                     Case 0
@@ -271,3 +272,8 @@ End Class
     End Sub
 End Class
 >>>>>>> customer
+=======
+
+    End Sub
+End Class
+>>>>>>> parent of 0f373cb... Implemented the code for card payment
