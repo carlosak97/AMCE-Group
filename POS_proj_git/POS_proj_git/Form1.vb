@@ -15,16 +15,16 @@
             End If
         End If
         ID_Text.Focus()
-        PercLabel.Visible = False
-        Enter_Cust.Visible = False
         AmountLabel.Visible = False
         ItemList.Visible = False
         CustLabel.Visible = False
         CustInput.Visible = False
         PinLabel.Visible = False
+        Enter_Cust.Visible = False
         PinText.Visible = False
         Check_Cust.Visible = False
         PayList.Visible = False
+        PercLabel.Visible = False
         Search_Item.Visible = False
         DGVData.Visible = True
         PayList.Items.Add("Cash")
@@ -64,8 +64,8 @@
                     ID_Text.Visible = False
                     ItemList.Visible = True
                     Search_Item.Visible = True
-                    ItemLabel.Visible = True
                     Enter_Cust.Visible = True
+                    ItemLabel.Visible = True
                     EnterItem.Visible = True
                     ItemText.Visible = True
                     CustLabel.Visible = True
@@ -76,7 +76,7 @@
                     TotalQuantity.Visible = True
                     TotalPrice.Visible = True
                     ToPayment.Visible = True
-                    CustInput.Focus()
+                    ItemText.Focus()
                 Else
                     MsgBox("Wrond ID entered")
                 End If
@@ -103,8 +103,8 @@
             SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
             If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                 SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
-                TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
-                ItemList.Items.Add("Item ID: " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
+                TPay = TPay + (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * QuantityText.Text)
+                ItemList.Items.Add("Item ID : " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
                 SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
                 TQuan = TQuan + QuantityText.Text
                 ItemText.Text = ""
@@ -127,21 +127,21 @@
         EnterItem.Visible = False
         AmountLabel.Visible = True
         DGVData.Visible = False
+        PercLabel.Visible = False
         Emp_Label.Visible = False
         AmountPayLabel.Visible = True
         Search_Item.Visible = False
         ItemLabel.Visible = False
+        Enter_Cust.Visible = False
         Amount_Text.Visible = True
         ItemText.Visible = False
         QuantityText.Visible = False
         QuantityLabel.Visible = False
         CustLabel.Visible = False
-        Enter_Cust.Visible = False
         CustInput.Visible = False
         Check_Cust.Visible = False
         PayList.Visible = True
         ToPayment.Visible = False
-        PercLabel.Visible = False
         AmountLabel.Visible = False
         Pay.Visible = True
         AmountLabel.Visible = True
@@ -222,33 +222,31 @@
         End If
     End Sub
 
-<<<<<<< HEAD
     Private Sub PayList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PayList.SelectedIndexChanged
-<<<<<<< HEAD
             Try
                 Select Case PayList.SelectedIndex
                     Case 0
-                        PayList.Location = New Point(695, 293)
+                    Pay.Location = New Point(695, 293)
                         PinLabel.Visible = False
                         PinText.Visible = False
                     Case 1
-                        PayList.Location = New Point(695, 293)
+                    Pay.Location = New Point(695, 293)
                         PinLabel.Visible = False
                         PinText.Visible = False
                     Case 2
-                        PayList.Location = New Point(695, 293)
+                    Pay.Location = New Point(695, 293)
                         PinLabel.Visible = False
                         PinText.Visible = False
                     Case 3
-                        PayList.Location = New Point(695, 310)
+                    Pay.Location = New Point(695, 310)
                         PinLabel.Visible = True 
                         PinText.Visible = True
                     Case 4
-                        PayList.Location = New Point(695, 293)
+                    Pay.Location = New Point(695, 293)
                         PinLabel.Visible = False
                         PinText.Visible = False
                     Case 5
-                        PayList.Location = New Point(695, 310)
+                    Pay.Location = New Point(695, 310)
                         PinLabel.Visible = True
                         PinText.Visible = True
                 End Select
@@ -256,8 +254,6 @@
                 MsgBox(ex.Message)
             End Try
         End Sub
-End Class
-=======
     Private Sub Enter_Cust_Click(sender As Object, e As EventArgs) Handles Enter_Cust.Click
         If SQL.HasConnection = True Then
             SQL.RunQuery("Select Cust_Disc From Customer Where Cust_ID = '" & CustInput.Text & "' ")
@@ -271,9 +267,3 @@ End Class
         End If
     End Sub
 End Class
->>>>>>> customer
-=======
-
-    End Sub
-End Class
->>>>>>> parent of 0f373cb... Implemented the code for card payment
