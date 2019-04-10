@@ -9,6 +9,8 @@ Address      VARCHAR(50),
 Phone        VARCHAR(9),
   
 DOB          DATE,
+
+Employee_Tag  Integer,
  
 PRIMARY KEY  (Employee_ID));
  
@@ -36,6 +38,8 @@ Description     VARCHAR(50),
 Color       VARCHAR(20),
   
 Price Integer,
+
+Item_Code Integer,
   
 PRIMARY KEY (Item_ID));
 
@@ -101,6 +105,8 @@ Cust_ID Integer,
 Cust_Name varchar(20) ,
 
 Cust_Age char(3) ,
+
+Cust_Telephone  varchar(10),
 
 Cust_Disc Decimal(1, 1), 
 

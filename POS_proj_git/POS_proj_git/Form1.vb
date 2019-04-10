@@ -103,7 +103,7 @@
             SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
             If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                 SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
-                TPay = TPay + (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * QuantityText.Text)
+                TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
                 ItemList.Items.Add("Item ID : " + Item_ID.ToString + "    Quantity : " + QuantityText.Text + "    Price : " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "    Employee : " + ID.ToString)
                 SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
                 TQuan = TQuan + QuantityText.Text
