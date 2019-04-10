@@ -9,3 +9,5 @@ C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\
 C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.xml
 C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.pdb
 C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.vbprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Main.resources
+C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Lookup.resources
