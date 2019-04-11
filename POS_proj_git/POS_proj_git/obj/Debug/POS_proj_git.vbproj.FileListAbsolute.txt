@@ -11,3 +11,17 @@ C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\
 C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.vbprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Main.resources
 C:\Users\user\Desktop\GitProject\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Lookup.resources
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.exe.config
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.exe
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.pdb
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\bin\Debug\POS_proj_git.xml
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.vbprojAssemblyReference.cache
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.POS.resources
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Lookup.resources
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Main.resources
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.Resources.resources
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.vbproj.GenerateResource.cache
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.vbproj.CoreCompileInputs.cache
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.exe
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.xml
+C:\Users\Carlos Abi Khattar\Documents\GitHub\AMCE-Group\POS_proj_git\POS_proj_git\obj\Debug\POS_proj_git.pdb

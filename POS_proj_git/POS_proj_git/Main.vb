@@ -5,6 +5,7 @@
     Dim TPay As Integer
     Dim PayL As Integer
     Dim Discount As Integer
+    Dim Is_USD As Boolean
     Dim SQL As New SQLControl
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ItemList.Items.Add("Item ID           Quantity           Price           Employee")
@@ -19,6 +20,7 @@
         Pay.Visible = False
         ToPayment.Visible = False
         Done.Visible = False
+        Is_USD = False
         TQuan = 0
         TPay = 0
         PayL = 0
@@ -64,18 +66,22 @@
                 SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
                 If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                     SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
-                    TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
+                    If Is_USD = False Then
+                        TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
+                    Else
+                        TPay = TPay + (((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * 1500)) * Discount / 100) * QuantityText.Text)
+                    End If
                     ItemList.Items.Add("   " + Item_ID.ToString + "                      " + QuantityText.Text + "                 " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "            " + SalesName.Text)
-                    SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
-                    TQuan = TQuan + QuantityText.Text
-                    ItemText.Text = ""
-                    QuantityText.Text = ""
-                    TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
-                    ItemText.Focus()
-                    TotalPrice.Text = "Total Price : " + TPay.ToString
-                    ToPayment.Visible = True
+                        SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
+                        TQuan = TQuan + QuantityText.Text
+                        ItemText.Text = ""
+                        QuantityText.Text = ""
+                        TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
+                        ItemText.Focus()
+                        TotalPrice.Text = "Total Price : " + TPay.ToString
+                        ToPayment.Visible = True
+                    End If
                 End If
-            End If
         Catch ex As Exception
             MsgBox("Wrong or No ID/Quantity Entered")
         End Try
@@ -141,6 +147,7 @@
             SalesName.Visible = False
             PinLabel.Visible = False
             EnterItem.Visible = True
+            Is_USD = False
             PinText.Visible = False
             Emp_Label.Visible = True
             PercLabel.Visible = False
@@ -183,26 +190,32 @@
                     Pay.Location = New Point(774, 325)
                     PinLabel.Visible = False
                     PinText.Visible = False
+                    Is_USD = False
                 Case 1
                     Pay.Location = New Point(774, 325)
                     PinLabel.Visible = False
                     PinText.Visible = False
+                    Is_USD = True
                 Case 2
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
+                    Is_USD = False
                 Case 3
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
+                    Is_USD = True
                 Case 4
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
+                    Is_USD = False
                 Case 5
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
+                    Is_USD = True
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)

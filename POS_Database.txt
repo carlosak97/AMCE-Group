@@ -11,6 +11,8 @@ Phone        VARCHAR(9),
 DOB          DATE,
 
 Employee_Tag  Integer,
+
+Emp_Pass varchar(20),
  
 PRIMARY KEY  (Employee_ID));
  
