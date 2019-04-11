@@ -10,6 +10,8 @@
             If Sql.SQLDataset.Tables.Count > 0 Then
                 If SQL.SQLDataset.Tables(0).Rows(0).Item(0) = PassText.Text Then
                     Main.Show()
+                    UserText.Text = ""
+                    PassText.Text = ""
                 End If
             End If
         End If

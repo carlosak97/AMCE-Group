@@ -66,11 +66,7 @@
                 SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
                 If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                     SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
-                    If Is_USD = False Then
                         TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
-                    Else
-                        TPay = TPay + (((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * 1500)) * Discount / 100) * QuantityText.Text)
-                    End If
                     ItemList.Items.Add("   " + Item_ID.ToString + "                      " + QuantityText.Text + "                 " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "            " + SalesName.Text)
                         SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
                         TQuan = TQuan + QuantityText.Text
@@ -175,7 +171,11 @@
 
     Private Sub Pay_Click(sender As Object, e As EventArgs) Handles Pay.Click
         Try
-            PayL = PayL - Amount_Text.Text
+            If Is_USD = False Then
+                PayL = PayL - Amount_Text.Text
+            Else
+                PayL = PayL - (Amount_Text.Text * 1500)
+            End If
             AmountLabel.Text = "Amount Left : " + PayL.ToString
             Amount_Text.Text = ""
         Catch ex As Exception
