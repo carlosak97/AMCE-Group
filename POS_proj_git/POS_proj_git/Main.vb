@@ -74,13 +74,18 @@
                     ItemList.Items.Add("   " + Item_ID.ToString + "                      " + QuantityText.Text + "                 " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "            " + SalesName.Text)
                         SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
                         TQuan = TQuan + QuantityText.Text
-                        ItemText.Text = ""
-                        QuantityText.Text = ""
-                        TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
+
+                    TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
                         ItemText.Focus()
                         TotalPrice.Text = "Total Price : " + TPay.ToString
-                        ToPayment.Visible = True
-                    End If
+                    ToPayment.Visible = True
+                    SQL.RunQuery("Select ItemQuantity From Item Where Item_ID = '" & Item_ID & "' ")
+                    Dim MinusQuan As Integer
+                    MinusQuan = SQL.SQLDataset.Tables(0).Rows(0).Item(0) - QuantityText.Text
+                    SQL.RunQuery("UPDATE Item SET ItemQuantity = '" & MinusQuan & "' Where Item_ID ='" & Item_ID & "'")
+                    ItemText.Text = ""
+                    QuantityText.Text = ""
+                End If
                 End If
         Catch ex As Exception
             MsgBox("Wrong or No ID/Quantity Entered")
