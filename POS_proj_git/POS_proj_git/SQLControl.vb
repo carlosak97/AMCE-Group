@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 
 
 Public Class SQLControl
-    Public SQLCon As New SqlConnection With {.ConnectionString = "Server= Carlos Abi Khattar\DESKTOP-S66JUB3;Database=POS;Trusted_Connection=True;"}
+    Public SQLCon As New SqlConnection With {.ConnectionString = "Server= USER\POSSERVER;Database=POS;Trusted_Connection=True;"}
     Public SQLCmd As SqlCommand
     Public SQLDA As SqlDataAdapter
     Public SQLDataset As DataSet

@@ -1,64 +1,42 @@
-CREATE TABLE Employees
+CREATE TABLE Employee
  (
-Employee_ID   Integer,
+Emp_ID   Integer,
  
-Emoloyee_Name VARCHAR(25),
+First_Name VARCHAR(50),
+
+Last_Name VARCHAR(50),
+
+DateOfBirth  DATE,
   
-Address      VARCHAR(50),
+PhoneNumber   VARCHAR(9),
   
-Phone        VARCHAR(9),
-  
-DOB          DATE,
+Position   VARCHAR(50),
 
 Employee_Tag  Integer,
 
 Emp_Pass varchar(20),
  
-PRIMARY KEY  (Employee_ID));
+PRIMARY KEY  (Empe_ID));
  
 
+CREATE TABLE Item(
+Item_ID     Integer,
 
-CREATE TABLE Department
- (
-Department_ID  Integer,
+ItemName   VARCHAR(25),
   
-Location  VARCHAR(50),
+ItemSize     VARCHAR(10),
   
-PRIMARY KEY (Department_ID),
+ItemColor       VARCHAR(20),
   
-FOREIGN KEY (Employee_ID) REFERENCES Employee(Employee_ID));
+Item_Price Integer,
 
- 
-
-CREATE TABLE Item
- (Item_ID     
-Integer,
-  Item_Name   VARCHAR(25),
-  
-Description     VARCHAR(50),
-  
-Color       VARCHAR(20),
-  
-Price Integer,
+ItemQuantity Integer,
 
 Item_Code Integer,
   
 PRIMARY KEY (Item_ID));
 
- 
-
-CREATE TABLE Payment
- (Payment_ID  Integer,
-  
-Payment_Method Varchar(10),
-  
-Amount Integer,
-  
-Total Integer,
-  
-PRIMARY KEY (Payment_ID));
-  
-  
+   
 
 CREATE TABLE Trans_Foot(
   
