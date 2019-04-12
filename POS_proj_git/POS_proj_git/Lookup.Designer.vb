@@ -64,8 +64,8 @@ Partial Class Lookup
         'BackToolStripMenuItem
         '
         Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
-        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.BackToolStripMenuItem.Text = "Back"
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.BackToolStripMenuItem.Text = "Exit"
         '
         'DGVData
         '

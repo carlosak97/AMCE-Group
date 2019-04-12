@@ -58,6 +58,7 @@ Partial Class POS
         '
         Me.PassText.Location = New System.Drawing.Point(96, 78)
         Me.PassText.Name = "PassText"
+        Me.PassText.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PassText.Size = New System.Drawing.Size(100, 20)
         Me.PassText.TabIndex = 3
         '

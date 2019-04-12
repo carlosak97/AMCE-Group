@@ -6,6 +6,7 @@
     Dim PayL As Integer
     Dim Discount As Integer
     Dim Is_USD As Boolean
+    Dim Is_Card As Boolean
     Dim SQL As New SQLControl
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ItemList.Items.Add("Item ID           Quantity           Price           Employee")
@@ -66,14 +67,12 @@
                 SQL.RunQuery("Select Count(Item_ID) As ItemCount From Item Where Item_ID ='" & ItemText.Text & "' ")
                 If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                     SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
-                        TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
+                    TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
                     ItemList.Items.Add("   " + Item_ID.ToString + "                      " + QuantityText.Text + "                 " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "            " + SalesName.Text)
-                        SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
-                        TQuan = TQuan + QuantityText.Text
-
+                    SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
+                    TQuan = TQuan + QuantityText.Text
                     TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
-                        ItemText.Focus()
-                        TotalPrice.Text = "Total Price : " + TPay.ToString
+                    TotalPrice.Text = "Total Price : " + TPay.ToString
                     ToPayment.Visible = True
                     SQL.RunQuery("Select ItemQuantity From Item Where Item_ID = '" & Item_ID & "' ")
                     Dim MinusQuan As Integer
@@ -81,6 +80,7 @@
                     SQL.RunQuery("UPDATE Item SET ItemQuantity = '" & MinusQuan & "' Where Item_ID ='" & Item_ID & "'")
                     ItemText.Text = ""
                     QuantityText.Text = ""
+                    ItemText.Focus()
                 End If
                 End If
         Catch ex As Exception
@@ -114,7 +114,6 @@
         AmountLabel.Visible = True
         Emp_Label.Visible = False
         AmountPayLabel.Visible = True
-
         ItemLabel.Visible = False
         Amount_Text.Visible = True
         ItemText.Visible = False
@@ -122,7 +121,6 @@
         QuantityLabel.Visible = False
         CustLabel.Visible = False
         CustInput.Visible = False
-
         PayList.Visible = True
         ToPayment.Visible = False
         AmountLabel.Visible = False
@@ -176,13 +174,28 @@
 
     Private Sub Pay_Click(sender As Object, e As EventArgs) Handles Pay.Click
         Try
-            If Is_USD = False Then
-                PayL = PayL - Amount_Text.Text
+            If Is_Card = True Then
+                If PinText.Text = "" Then
+                    MsgBox("Enter Pin")
+                Else
+                    If Is_USD = False Then
+                        PayL = PayL - Amount_Text.Text
+                    Else
+                        PayL = PayL - (Amount_Text.Text * 1500)
+                    End If
+                    AmountLabel.Text = "Amount Left : " + PayL.ToString
+                    Amount_Text.Text = ""
+                    PinText.Text = ""
+                End If
             Else
-                PayL = PayL - (Amount_Text.Text * 1500)
+                If Is_USD = False Then
+                    PayL = PayL - Amount_Text.Text
+                Else
+                    PayL = PayL - (Amount_Text.Text * 1500)
+                End If
+                AmountLabel.Text = "Amount Left : " + PayL.ToString
+                Amount_Text.Text = ""
             End If
-            AmountLabel.Text = "Amount Left : " + PayL.ToString
-            Amount_Text.Text = ""
         Catch ex As Exception
             MsgBox("Enter Payment Amount")
         End Try
@@ -196,30 +209,36 @@
                     PinLabel.Visible = False
                     PinText.Visible = False
                     Is_USD = False
+                    Is_Card = False
                 Case 1
                     Pay.Location = New Point(774, 325)
                     PinLabel.Visible = False
                     PinText.Visible = False
                     Is_USD = True
+                    Is_Card = False
                 Case 2
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
                     Is_USD = False
+                    Is_Card = True
                 Case 3
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
                     Is_USD = True
+                    Is_Card = True
                 Case 4
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
+                    Is_Card = True
                     Is_USD = False
                 Case 5
                     Pay.Location = New Point(774, 350)
                     PinLabel.Visible = True
                     PinText.Visible = True
+                    Is_Card = True
                     Is_USD = True
             End Select
         Catch ex As Exception
