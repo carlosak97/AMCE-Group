@@ -9,7 +9,7 @@
     Dim Is_Card As Boolean
     Dim SQL As New SQLControl
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ItemList.Items.Add("Item ID           Quantity           Price           Employee")
+        ItemList.Items.Add("Item Code         Quantity           Price           Employee")
         PayList.Visible = False
         SalesName.Visible = False
         PinLabel.Visible = False
@@ -52,11 +52,6 @@
         Catch ex As Exception
             MsgBox("Enter ID")
         End Try
-
-
-
-
-
     End Sub
 
     Private Sub EnterItem_Click(sender As Object, e As EventArgs) Handles EnterItem.Click
@@ -68,7 +63,7 @@
                 If SQL.SQLDataset.Tables(0).Rows(0).Item("ItemCount") = 1 Then
                     SQL.RunQuery("Select Item_Price From Item Where Item_ID='" & Item_ID & "' ")
                     TPay = TPay + ((SQL.SQLDataset.Tables(0).Rows(0).Item(0) - (SQL.SQLDataset.Tables(0).Rows(0).Item(0) * Discount / 100)) * QuantityText.Text)
-                    ItemList.Items.Add("   " + Item_ID.ToString + "                      " + QuantityText.Text + "                 " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "            " + SalesName.Text)
+                    ItemList.Items.Add("     " + Item_ID.ToString + "                      " + QuantityText.Text + "                 " + SQL.SQLDataset.Tables(0).Rows(0).Item(0).ToString + "            " + SalesName.Text)
                     SQL.RunQuery("INSERT INTO Tran_Foot (Item_ID,Salesman,Price)" & "VALUES ('" & Item_ID & "','" & ID & "','" & SQL.SQLDataset.Tables(0).Rows(0).Item(0) & "');")
                     TQuan = TQuan + QuantityText.Text
                     TotalQuantity.Text = "Total Quantity : " + TQuan.ToString
@@ -252,5 +247,9 @@
 
     Private Sub SignOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignOutToolStripMenuItem.Click
         Me.Close()
+    End Sub
+
+    Private Sub NewCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewCustomerToolStripMenuItem.Click
+        Customer.Show()
     End Sub
 End Class

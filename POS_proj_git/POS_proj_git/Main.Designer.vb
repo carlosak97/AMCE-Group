@@ -47,8 +47,9 @@ Partial Class Main
         Me.Emp_Label = New System.Windows.Forms.Label()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.LookUpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalesName = New System.Windows.Forms.Label()
         Me.SignOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalesName = New System.Windows.Forms.Label()
+        Me.NewCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -250,7 +251,7 @@ Partial Class Main
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.SystemColors.Info
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LookUpToolStripMenuItem, Me.SignOutToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LookUpToolStripMenuItem, Me.NewCustomerToolStripMenuItem, Me.SignOutToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(944, 24)
@@ -263,6 +264,12 @@ Partial Class Main
         Me.LookUpToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
         Me.LookUpToolStripMenuItem.Text = "Look Up"
         '
+        'SignOutToolStripMenuItem
+        '
+        Me.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem"
+        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.SignOutToolStripMenuItem.Text = "Sign Out"
+        '
         'SalesName
         '
         Me.SalesName.AutoSize = True
@@ -272,11 +279,11 @@ Partial Class Main
         Me.SalesName.TabIndex = 57
         Me.SalesName.Text = "None"
         '
-        'SignOutToolStripMenuItem
+        'NewCustomerToolStripMenuItem
         '
-        Me.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem"
-        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.SignOutToolStripMenuItem.Text = "Sign Out"
+        Me.NewCustomerToolStripMenuItem.Name = "NewCustomerToolStripMenuItem"
+        Me.NewCustomerToolStripMenuItem.Size = New System.Drawing.Size(98, 20)
+        Me.NewCustomerToolStripMenuItem.Text = "New Customer"
         '
         'Main
         '
@@ -344,4 +351,5 @@ Partial Class Main
     Friend WithEvents LookUpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalesName As System.Windows.Forms.Label
     Friend WithEvents SignOutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NewCustomerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
