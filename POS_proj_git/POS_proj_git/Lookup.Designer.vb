@@ -92,6 +92,7 @@ Partial Class Lookup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(676, 282)
         Me.Controls.Add(Me.DGVData)
         Me.Controls.Add(Me.MenuStrip1)

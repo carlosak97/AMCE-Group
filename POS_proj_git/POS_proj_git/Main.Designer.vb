@@ -47,9 +47,9 @@ Partial Class Main
         Me.Emp_Label = New System.Windows.Forms.Label()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.LookUpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SignOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesName = New System.Windows.Forms.Label()
-        Me.NewCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -106,9 +106,9 @@ Partial Class Main
         '
         'Done
         '
-        Me.Done.Location = New System.Drawing.Point(422, 430)
+        Me.Done.Location = New System.Drawing.Point(448, 419)
         Me.Done.Name = "Done"
-        Me.Done.Size = New System.Drawing.Size(75, 23)
+        Me.Done.Size = New System.Drawing.Size(163, 34)
         Me.Done.TabIndex = 46
         Me.Done.Text = "Done"
         Me.Done.UseVisualStyleBackColor = True
@@ -140,7 +140,7 @@ Partial Class Main
         '
         'EnterItem
         '
-        Me.EnterItem.Location = New System.Drawing.Point(511, 176)
+        Me.EnterItem.Location = New System.Drawing.Point(524, 185)
         Me.EnterItem.Name = "EnterItem"
         Me.EnterItem.Size = New System.Drawing.Size(75, 23)
         Me.EnterItem.TabIndex = 42
@@ -149,9 +149,9 @@ Partial Class Main
         '
         'ToPayment
         '
-        Me.ToPayment.Location = New System.Drawing.Point(307, 361)
+        Me.ToPayment.Location = New System.Drawing.Point(448, 419)
         Me.ToPayment.Name = "ToPayment"
-        Me.ToPayment.Size = New System.Drawing.Size(75, 23)
+        Me.ToPayment.Size = New System.Drawing.Size(163, 34)
         Me.ToPayment.TabIndex = 41
         Me.ToPayment.Text = "Payment"
         Me.ToPayment.UseVisualStyleBackColor = True
@@ -225,7 +225,7 @@ Partial Class Main
         '
         'EnterID
         '
-        Me.EnterID.Location = New System.Drawing.Point(254, 63)
+        Me.EnterID.Location = New System.Drawing.Point(254, 64)
         Me.EnterID.Name = "EnterID"
         Me.EnterID.Size = New System.Drawing.Size(75, 23)
         Me.EnterID.TabIndex = 31
@@ -264,6 +264,12 @@ Partial Class Main
         Me.LookUpToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
         Me.LookUpToolStripMenuItem.Text = "Look Up"
         '
+        'NewCustomerToolStripMenuItem
+        '
+        Me.NewCustomerToolStripMenuItem.Name = "NewCustomerToolStripMenuItem"
+        Me.NewCustomerToolStripMenuItem.Size = New System.Drawing.Size(98, 20)
+        Me.NewCustomerToolStripMenuItem.Text = "New Customer"
+        '
         'SignOutToolStripMenuItem
         '
         Me.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem"
@@ -279,16 +285,11 @@ Partial Class Main
         Me.SalesName.TabIndex = 57
         Me.SalesName.Text = "None"
         '
-        'NewCustomerToolStripMenuItem
-        '
-        Me.NewCustomerToolStripMenuItem.Name = "NewCustomerToolStripMenuItem"
-        Me.NewCustomerToolStripMenuItem.Size = New System.Drawing.Size(98, 20)
-        Me.NewCustomerToolStripMenuItem.Text = "New Customer"
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(944, 474)
         Me.Controls.Add(Me.ItemList)
         Me.Controls.Add(Me.PercLabel)

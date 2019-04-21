@@ -90,6 +90,12 @@ Cust_Telephone  varchar(10),
 
 Cust_Disc Decimal(1, 1), 
 
+Nationality varchar(20),
+
+Region varchar(20),
+
+Cust_DOB Date,
+
 PRIMARY KEY (Cust_ID));
 
 
