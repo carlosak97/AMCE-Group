@@ -22,25 +22,26 @@ Partial Class Customer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Tel_Text As System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Name_Text = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Age_Text = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Cust_Prog = New System.Windows.Forms.RadioButton()
+        Me.Loyal_Prog = New System.Windows.Forms.RadioButton()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.Enter_Button = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Date_Text = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.LookUpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SignOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Tel_Text = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -54,12 +55,12 @@ Partial Class Customer
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Name"
         '
-        'TextBox1
+        'Name_Text
         '
-        Me.TextBox1.Location = New System.Drawing.Point(84, 43)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.Name_Text.Location = New System.Drawing.Point(84, 43)
+        Me.Name_Text.Name = "Name_Text"
+        Me.Name_Text.Size = New System.Drawing.Size(100, 20)
+        Me.Name_Text.TabIndex = 1
         '
         'Label2
         '
@@ -70,23 +71,45 @@ Partial Class Customer
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Age"
         '
-        'TextBox2
+        'Age_Text
         '
-        Me.TextBox2.Location = New System.Drawing.Point(85, 98)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.Age_Text.Location = New System.Drawing.Point(85, 98)
+        Me.Age_Text.Name = "Age_Text"
+        Me.Age_Text.Size = New System.Drawing.Size(100, 20)
+        Me.Age_Text.TabIndex = 3
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Controls.Add(Me.Cust_Prog)
+        Me.GroupBox1.Controls.Add(Me.Loyal_Prog)
         Me.GroupBox1.Location = New System.Drawing.Point(434, 36)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(200, 96)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Program"
+        '
+        'Cust_Prog
+        '
+        Me.Cust_Prog.AutoSize = True
+        Me.Cust_Prog.Location = New System.Drawing.Point(48, 69)
+        Me.Cust_Prog.Name = "Cust_Prog"
+        Me.Cust_Prog.Size = New System.Drawing.Size(111, 17)
+        Me.Cust_Prog.TabIndex = 11
+        Me.Cust_Prog.TabStop = True
+        Me.Cust_Prog.Text = "Customer Program"
+        Me.Cust_Prog.UseVisualStyleBackColor = True
+        '
+        'Loyal_Prog
+        '
+        Me.Loyal_Prog.AutoSize = True
+        Me.Loyal_Prog.Location = New System.Drawing.Point(48, 19)
+        Me.Loyal_Prog.Name = "Loyal_Prog"
+        Me.Loyal_Prog.Size = New System.Drawing.Size(100, 17)
+        Me.Loyal_Prog.TabIndex = 10
+        Me.Loyal_Prog.TabStop = True
+        Me.Loyal_Prog.Text = "Loyalty Program"
+        Me.Loyal_Prog.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -97,45 +120,23 @@ Partial Class Customer
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Telephone"
         '
-        'TextBox3
+        'Tel_Text
         '
-        Me.TextBox3.Location = New System.Drawing.Point(291, 43)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 8
+        Tel_Text.Location = New System.Drawing.Point(291, 43)
+        Tel_Text.Name = "Tel_Text"
+        Tel_Text.Size = New System.Drawing.Size(100, 20)
+        Tel_Text.TabIndex = 8
         '
-        'Button1
+        'Enter_Button
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Location = New System.Drawing.Point(434, 143)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(200, 60)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Enter"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(48, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(100, 17)
-        Me.RadioButton1.TabIndex = 10
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Loyalty Program"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(48, 69)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(111, 17)
-        Me.RadioButton2.TabIndex = 11
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Customer Program"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.Enter_Button.BackColor = System.Drawing.SystemColors.Control
+        Me.Enter_Button.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Enter_Button.Location = New System.Drawing.Point(434, 143)
+        Me.Enter_Button.Name = "Enter_Button"
+        Me.Enter_Button.Size = New System.Drawing.Size(200, 60)
+        Me.Enter_Button.TabIndex = 9
+        Me.Enter_Button.Text = "Enter"
+        Me.Enter_Button.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -149,6 +150,7 @@ Partial Class Customer
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"American", "Armenian", "African", "British", "Chinese", "Hungarian", "Indian", "Japanese", "Korean", "Lebanese", "Russian"})
         Me.ComboBox1.Location = New System.Drawing.Point(290, 98)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(101, 21)
@@ -166,17 +168,19 @@ Partial Class Customer
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"Antelias", "Jal El Dib", "Naccash", "Zalka", "Dbayeh", "Achrafieh", "Verdun", "Hamra", "Beirut", "Tripoly"})
         Me.ComboBox2.Location = New System.Drawing.Point(85, 148)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(100, 21)
         Me.ComboBox2.TabIndex = 13
         '
-        'TextBox4
+        'Date_Text
         '
-        Me.TextBox4.Location = New System.Drawing.Point(290, 148)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 15
+        Me.Date_Text.Location = New System.Drawing.Point(291, 148)
+        Me.Date_Text.Name = "Date_Text"
+        Me.Date_Text.Size = New System.Drawing.Size(100, 20)
+        Me.Date_Text.TabIndex = 15
+        Me.Date_Text.Text = "DD/MM/YY"
         '
         'Label6
         '
@@ -216,19 +220,19 @@ Partial Class Customer
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(646, 215)
         Me.Controls.Add(Me.MenuStrip)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.Date_Text)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.Enter_Button)
+        Me.Controls.Add(Tel_Text)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.Age_Text)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Name_Text)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Customer"
         Me.Text = "Customer"
@@ -241,20 +245,19 @@ Partial Class Customer
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Name_Text As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Age_Text As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents Enter_Button As System.Windows.Forms.Button
+    Friend WithEvents Cust_Prog As System.Windows.Forms.RadioButton
+    Friend WithEvents Loyal_Prog As System.Windows.Forms.RadioButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents Date_Text As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents LookUpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
