@@ -5,16 +5,22 @@
     End Sub
 
     Private Sub Login_Button_Click(sender As Object, e As EventArgs) Handles LoginB.Click
-        If Sql.HasConnection = True Then
-            SQL.RunQuery("Select Emp_Pass From Employee Where First_Name ='" & UserText.Text & "'")
-            If Sql.SQLDataset.Tables.Count > 0 Then
-                If SQL.SQLDataset.Tables(0).Rows(0).Item(0) = PassText.Text Then
-                    Main.Show()
-                    UserText.Text = ""
-                    PassText.Text = ""
+        Try
+            If SQL.HasConnection = True Then
+                SQL.RunQuery("Select Emp_Pass From Employee Where First_Name ='" & UserText.Text & "'")
+                If SQL.SQLDataset.Tables.Count > 0 Then
+                    If SQL.SQLDataset.Tables(0).Rows(0).Item(0) = PassText.Text Then
+                        Main.Show()
+                        UserText.Text = ""
+                        PassText.Text = ""
+                    End If
                 End If
             End If
-        End If
+        Catch ex As Exception
+            MsgBox("Wrong Username or Password Enetered")
+        End Try
+
+
 
     End Sub
 End Class
